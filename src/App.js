@@ -21,7 +21,7 @@ export default function Tooltip({ children, text, ...rest }) {
       </div>
       <div className="App">
       <h1>Tooltip</h1>
-      <h3>Hover to see magic</h3>
+      <h3>Hover to see magic 🖱️</h3>
     </div>
     </div>
   );

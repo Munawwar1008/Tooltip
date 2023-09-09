@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import "./index.css";
 
-function App() {
+
+export default function Tooltip({ children, text, ...rest }) {
+  const [show, setShow] = React.useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="tooltip" style={show ? { visibility: "visible" } : {}}>
+        {text}
+        <span className="tooltip-arrow" />
+      </div>
+      <div
+        {...rest}
+        onMouseEnter={() => setShow(true)}
+        onMouseLeave={() => setShow(false)}
+      >
+        {children}
+      </div>
+      <div className="App">
+      <h1>Tooltip</h1>
+      <h3>Hover to see magic</h3>
+    </div>
     </div>
   );
 }
-
-export default App;
